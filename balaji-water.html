@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balaji Water — Purity. Reliability. Doorstep.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #071a24;
+    --navy-deep: #04121a;
+    --gold: #c9a227;
+    --gold-bright: #e8c766;
+    --crystal: #4fd3e8;
+    --crystal-soft: #bdf3fb;
+    --ivory: #f3ede0;
+    --teal: #0e3b43;
+    --line: rgba(201,162,39,0.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy);
+    color:var(--ivory);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .eyebrow{
+    font-family:'Manrope',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:0.72rem;
+    color:var(--gold-bright);
+    font-weight:700;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--gold); color:var(--navy-deep);}
+
+  /* ========== REVEALS ========== */
+  .reveal{opacity:0; transform:translateY(50px) scale(0.96); transition:opacity 1.1s cubic-bezier(0.16,1,0.3,1), transform 1.1s cubic-bezier(0.16,1,0.3,1);}
+  .reveal.in{opacity:1; transform:translateY(0) scale(1);}
+  .reveal-left{opacity:0; transform:translateX(-70px); transition:opacity 1.1s cubic-bezier(0.16,1,0.3,1), transform 1.1s cubic-bezier(0.16,1,0.3,1);}
+  .reveal-left.in{opacity:1; transform:translateX(0);}
+  .reveal-right{opacity:0; transform:translateX(70px); transition:opacity 1.1s cubic-bezier(0.16,1,0.3,1), transform 1.1s cubic-bezier(0.16,1,0.3,1);}
+  .reveal-right.in{opacity:1; transform:translateX(0);}
+  .reveal-scale{opacity:0; transform:scale(0.75); transition:opacity 1s ease, transform 1s cubic-bezier(0.34,1.56,0.64,1);}
+  .reveal-scale.in{opacity:1; transform:scale(1);}
+  .reveal-rotate{opacity:0; transform:rotate(-8deg) scale(0.9); transition:opacity 1s, transform 1s cubic-bezier(0.34,1.56,0.64,1);}
+  .reveal-rotate.in{opacity:1; transform:rotate(0) scale(1);}
+
+  /* particles */
+  .particle{
+    position:absolute; border-radius:50%;
+    background:radial-gradient(circle, var(--crystal-soft), transparent);
+    pointer-events:none; opacity:0.35;
+    animation:floatParticle 14s ease-in-out infinite;
+  }
+  @keyframes floatParticle{
+    0%,100%{transform:translate(0,0) scale(1);}
+    25%{transform:translate(25px,-40px) scale(1.15);}
+    50%{transform:translate(-20px,-60px) scale(0.85);}
+    75%{transform:translate(30px,-25px) scale(1.1);}
+  }
+
+  /* ========== NAV ========== */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 5vw;
+    transition:all .45s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{
+    background:rgba(4,18,26,0.92);
+    backdrop-filter:blur(18px);
+    padding:11px 5vw;
+    border-bottom:1px solid var(--line);
+    box-shadow:0 10px 40px rgba(0,0,0,0.35);
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-name{font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; letter-spacing:0.03em;}
+  .brand-name em{font-style:normal; color:var(--gold-bright);}
+  .brand-sub{font-size:0.56rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--crystal-soft); opacity:0.7; margin-top:-2px;}
+  nav ul{list-style:none; display:flex; gap:30px; align-items:center;}
+  nav a{
+    font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; font-weight:600;
+    color:var(--ivory); opacity:0.75; position:relative; padding-bottom:4px;
+    transition:opacity .3s;
+  }
+  nav a::after{
+    content:''; position:absolute; left:0; bottom:0; width:0; height:1.5px; background:var(--gold-bright);
+    transition:width .4s cubic-bezier(0.16,1,0.3,1);
+  }
+  nav a:hover{opacity:1;}
+  nav a:hover::after{width:100%;}
+  .nav-social{display:flex; gap:10px; margin-left:8px;}
+  .nav-social a{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    transition:all .35s; opacity:1;
+  }
+  .nav-social a:hover{border-color:var(--gold); background:rgba(201,162,39,0.12); transform:translateY(-3px);}
+  .nav-social a svg{width:16px; height:16px; fill:var(--gold-bright);}
+  .nav-cta{
+    border:1px solid var(--gold); padding:10px 18px; border-radius:3px; font-size:0.72rem;
+    letter-spacing:0.08em; text-transform:uppercase; font-weight:700; color:var(--gold-bright);
+    transition:all .35s; display:inline-flex; align-items:center; gap:7px;
+  }
+  .nav-cta:hover{background:var(--gold); color:var(--navy-deep); transform:translateY(-2px); box-shadow:0 8px 22px rgba(201,162,39,0.4);}
+  .nav-toggle{display:none; background:none; border:none; color:var(--ivory); font-size:1.4rem; cursor:pointer;}
+
+  /* ========== HERO ========== */
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden;
+    background:
+      radial-gradient(ellipse at 12% 18%, rgba(201,162,39,0.14), transparent 42%),
+      radial-gradient(ellipse at 88% 78%, rgba(79,211,232,0.13), transparent 48%),
+      linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 50%, var(--teal) 140%);
+  }
+  #ripple-canvas{position:absolute; inset:0; width:100%; height:100%; opacity:0.55;}
+  .hero-inner{
+    position:relative; z-index:5; width:100%; max-width:1280px; margin:0 auto;
+    padding:0 5vw; display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap:30px;
+    padding-top:100px;
+  }
+  .hero-eyebrow{display:flex; align-items:center; gap:14px; margin-bottom:24px;}
+  .hero-eyebrow .rule{width:0; height:1px; background:var(--gold); animation:ruleGrow 1.1s 0.2s forwards;}
+  @keyframes ruleGrow{to{width:44px;}}
+  h1.hero-title{font-size:clamp(2.4rem, 5.2vw, 4.6rem); line-height:1.05; font-weight:600;}
+  h1.hero-title .hi{
+    display:block; font-size:clamp(1.45rem, 2.7vw, 2.3rem); color:var(--crystal-soft); font-style:italic; font-weight:500; margin-bottom:8px;
+    opacity:0; animation:fadeUp 0.9s 0.25s forwards;
+  }
+  h1.hero-title .line1{opacity:0; animation:fadeUp 0.9s 0.45s forwards; display:inline-block;}
+  h1.hero-title .accent{
+    color:var(--gold-bright); display:inline-block; position:relative;
+    opacity:0; animation:fadeUp 0.9s 0.65s forwards;
+  }
+  h1.hero-title .accent::after{
+    content:''; position:absolute; left:0; bottom:2px; width:0; height:3px;
+    background:linear-gradient(90deg,var(--gold),transparent);
+    animation:underlineGrow 1s 1.3s forwards;
+  }
+  @keyframes underlineGrow{to{width:100%;}}
+  @keyframes fadeUp{from{opacity:0; transform:translateY(28px);} to{opacity:1; transform:translateY(0);}}
+  .hero-desc{
+    margin-top:24px; max-width:470px; font-size:1rem; line-height:1.75; color:rgba(243,237,224,0.76);
+    opacity:0; animation:fadeUp 0.9s 0.85s forwards;
+  }
+  .hero-ctas{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; opacity:0; animation:fadeUp 0.9s 1.05s forwards;}
+  .btn-primary, .btn-ghost, .btn-whatsapp, .btn-ig{
+    padding:14px 26px; font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:700;
+    border-radius:3px; transition:all .4s cubic-bezier(0.16,1,0.3,1);
+    display:inline-flex; align-items:center; gap:9px; cursor:pointer; border:none;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg, var(--gold), var(--gold-bright)); color:var(--navy-deep);
+    box-shadow:0 10px 32px -8px rgba(201,162,39,0.55);
+  }
+  .btn-primary:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 20px 45px -8px rgba(201,162,39,0.75);}
+  .btn-ghost{border:1px solid rgba(243,237,224,0.3); color:var(--ivory); background:transparent;}
+  .btn-ghost:hover{border-color:var(--crystal); color:var(--crystal-soft); transform:translateY(-4px);}
+  .btn-whatsapp{
+    background:linear-gradient(135deg, #25D366, #128C7E); color:#fff;
+    box-shadow:0 10px 28px -8px rgba(37,211,102,0.45);
+  }
+  .btn-whatsapp:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 18px 40px -8px rgba(37,211,102,0.65);}
+  .btn-ig{
+    background:linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color:#fff;
+    box-shadow:0 10px 28px -8px rgba(220,39,67,0.4);
+  }
+  .btn-ig:hover{transform:translateY(-5px) scale(1.02); box-shadow:0 18px 40px -8px rgba(220,39,67,0.55);}
+
+  .hero-stats{display:flex; gap:30px; margin-top:48px; flex-wrap:wrap; opacity:0; animation:fadeUp 0.9s 1.25s forwards;}
+  .hero-stats div b{display:block; font-family:'Cormorant Garamond',serif; font-size:2.05rem; color:var(--gold-bright); font-weight:700;}
+  .hero-stats div span{font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(243,237,224,0.5);}
+
+  /* ========== BOTTLE WITH POUR + FILL ========== */
+  .bottle-wrap{
+    position:relative; display:flex; align-items:center; justify-content:center; height:580px;
+  }
+  .bottle-halo{
+    position:absolute; width:380px; height:380px; border-radius:50%;
+    background:radial-gradient(circle, rgba(79,211,232,0.3), transparent 65%);
+    filter:blur(14px); animation:pulseHalo 4s ease-in-out infinite;
+  }
+  .bottle-halo::before{
+    content:''; position:absolute; inset:-40px; border-radius:50%;
+    border:1px solid rgba(201,162,39,0.22); animation:ringPulse 3.5s ease-in-out infinite;
+  }
+  .bottle-halo::after{
+    content:''; position:absolute; inset:-70px; border-radius:50%;
+    border:1px solid rgba(79,211,232,0.12); animation:ringPulse 3.5s 0.6s ease-in-out infinite;
+  }
+  @keyframes pulseHalo{0%,100%{transform:scale(1); opacity:0.7;} 50%{transform:scale(1.18); opacity:1;}}
+  @keyframes ringPulse{0%,100%{transform:scale(0.88); opacity:0.35;} 50%{transform:scale(1.12); opacity:0.85;}}
+
+  .bottle{
+    position:relative; width:155px; height:440px;
+    animation:floatBottle 5s ease-in-out infinite;
+    filter:drop-shadow(0 32px 50px rgba(0,0,0,0.6));
+    z-index:3;
+  }
+  @keyframes floatBottle{
+    0%,100%{transform:translateY(0) rotate(-2deg);}
+    50%{transform:translateY(-30px) rotate(2deg);}
+  }
+  .bottle svg{width:100%; height:100%;}
+
+  /* pouring stream from top */
+  .pour-stream{
+    position:absolute; top:-30px; left:50%; transform:translateX(-50%);
+    width:8px; height:0; z-index:4;
+    background:linear-gradient(180deg, rgba(189,243,251,0.95), rgba(79,211,232,0.7));
+    border-radius:4px;
+    animation:pourDown 4s ease-in-out infinite;
+    box-shadow:0 0 12px rgba(79,211,232,0.6);
+  }
+  @keyframes pourDown{
+    0%{height:0; opacity:0; top:-20px;}
+    15%{height:90px; opacity:1; top:10px;}
+    45%{height:90px; opacity:1; top:10px;}
+    55%{height:0; opacity:0; top:80px;}
+    100%{height:0; opacity:0; top:-20px;}
+  }
+  .pour-splash{
+    position:absolute; top:95px; left:50%; transform:translateX(-50%);
+    width:40px; height:12px; border-radius:50%;
+    background:radial-gradient(ellipse, rgba(189,243,251,0.7), transparent);
+    opacity:0; animation:splash 4s ease-in-out infinite; z-index:4;
+  }
+  @keyframes splash{
+    0%,15%{opacity:0; transform:translateX(-50%) scaleX(0.5);}
+    25%{opacity:0.9; transform:translateX(-50%) scaleX(1.4);}
+    45%{opacity:0.6; transform:translateX(-50%) scaleX(1);}
+    55%,100%{opacity:0; transform:translateX(-50%) scaleX(0.5);}
+  }
+
+  /* floating droplets around bottle */
+  .droplet-float{
+    position:absolute; width:11px; height:15px;
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    background:linear-gradient(160deg, var(--crystal-soft), var(--crystal));
+    opacity:0.75; animation:dropFall 3.2s ease-in infinite; z-index:2;
+  }
+  @keyframes dropFall{
+    0%{transform:translateY(-30px) scale(0.5); opacity:0;}
+    15%{opacity:0.85;}
+    100%{transform:translateY(200px) scale(0.25); opacity:0;}
+  }
+
+  .scroll-cue{
+    position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:5;
+    display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0.55;
+    animation:bounceCue 2.2s ease-in-out infinite;
+  }
+  @keyframes bounceCue{0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(10px);}}
+  .scroll-cue span{font-size:0.58rem; letter-spacing:0.3em; text-transform:uppercase;}
+  .scroll-line{width:1px; height:34px; background:linear-gradient(var(--gold), transparent); animation:scrollDown 1.8s ease-in-out infinite;}
+  @keyframes scrollDown{0%{transform:scaleY(0); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 51%{transform-origin:bottom;} 100%{transform:scaleY(0); transform-origin:bottom;}}
+
+  /* ========== DELIVERY VAN ========== */
+  .van-track{
+    position:fixed; bottom:75px; left:0; width:100%; height:80px; z-index:50;
+    pointer-events:none; overflow:visible;
+  }
+  .delivery-van{
+    position:absolute; bottom:0; left:-180px;
+    width:150px; height:75px;
+    transition:left 0.08s linear;
+    filter:drop-shadow(0 10px 20px rgba(0,0,0,0.45));
+  }
+  .delivery-van svg{width:100%; height:100%;}
+  .van-smoke{
+    position:absolute; width:14px; height:14px; border-radius:50%;
+    background:rgba(180,180,180,0.4); bottom:20px; left:6px;
+    animation:smoke 1.1s ease-out infinite;
+  }
+  @keyframes smoke{
+    0%{transform:translate(0,0) scale(0.4); opacity:0.55;}
+    100%{transform:translate(-35px,-30px) scale(2); opacity:0;}
+  }
+  .van-wheel-spin{animation:wheelSpin 0.4s linear infinite;}
+  @keyframes wheelSpin{to{transform:rotate(360deg);}}
+
+  /* ========== SECTIONS ========== */
+  section{position:relative; padding:120px 5vw; overflow:hidden;}
+  .section-head{max-width:640px; margin:0 auto 70px; text-align:center;}
+  .section-head .eyebrow{justify-content:center; display:flex; gap:14px; align-items:center; margin-bottom:18px;}
+  .section-head .eyebrow .rule{width:36px; height:1px; background:var(--gold);}
+  .section-head h2{font-size:clamp(2rem,3.4vw,3rem);}
+  .section-head p{margin-top:16px; color:rgba(243,237,224,0.62); font-size:0.98rem; line-height:1.7;}
+
+  /* ABOUT */
+  .about{background:linear-gradient(180deg, var(--teal) 0%, var(--navy) 100%);}
+  .about-grid{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:0.9fr 1.1fr; gap:65px; align-items:center;}
+  .about-visual{
+    position:relative; aspect-ratio:4/5; border-radius:8px; overflow:hidden;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(201,162,39,0.38), transparent 55%),
+      linear-gradient(160deg, #0c2732, #061319 70%);
+    border:1px solid var(--line);
+  }
+  .about-visual .arch{position:absolute; inset:auto 0 0 0; height:70%;}
+  .about-visual .crest{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:58%; animation:crestFloat 5.5s ease-in-out infinite;}
+  @keyframes crestFloat{0%,100%{transform:translate(-50%,-50%) scale(1);} 50%{transform:translate(-50%,-55%) scale(1.04);}}
+  .about-copy .eyebrow{display:flex; gap:14px; align-items:center; margin-bottom:18px;}
+  .about-copy .eyebrow .rule{width:36px; height:1px; background:var(--gold);}
+  .about-copy h2{font-size:clamp(1.95rem,3.2vw,2.75rem); margin-bottom:20px; line-height:1.15;}
+  .about-copy p{color:rgba(243,237,224,0.7); line-height:1.8; margin-bottom:15px; font-size:0.98rem;}
+  .checklist{margin-top:26px; display:grid; gap:13px;}
+  .checklist li{list-style:none; display:flex; align-items:center; gap:13px; font-size:0.94rem;}
+  .checklist .tick{
+    width:24px;height:24px;border-radius:50%;border:1px solid var(--gold); display:flex;align-items:center;justify-content:center;
+    flex:none; color:var(--gold-bright); font-size:0.68rem; transition:all .4s;
+  }
+  .checklist li:hover .tick{background:var(--gold); color:var(--navy-deep); transform:scale(1.2) rotate(10deg);}
+
+  /* FILTRATION */
+  .filtration{
+    background:
+      radial-gradient(ellipse at 18% 50%, rgba(79,211,232,0.09), transparent 50%),
+      radial-gradient(ellipse at 82% 25%, rgba(201,162,39,0.09), transparent 45%),
+      var(--navy-deep);
+  }
+  .filter-pipeline{
+    max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:18px; position:relative;
+  }
+  .filter-pipeline::before{
+    content:''; position:absolute; top:50px; left:10%; right:10%; height:3px;
+    background:linear-gradient(90deg, var(--crystal), var(--gold), var(--crystal), var(--gold));
+    background-size:200% 100%;
+    opacity:0.4; border-radius:2px; z-index:0;
+    animation:pipeFlow 3s linear infinite;
+  }
+  @keyframes pipeFlow{0%{background-position:0% 0;} 100%{background-position:200% 0;}}
+  .filter-stage{position:relative; z-index:1; text-align:center; padding:18px 10px;}
+  .filter-icon{
+    width:100px; height:100px; margin:0 auto 18px; border-radius:50%;
+    background:linear-gradient(145deg, rgba(79,211,232,0.15), rgba(201,162,39,0.1));
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; transition:all .45s;
+  }
+  .filter-stage:hover .filter-icon{
+    transform:scale(1.1); box-shadow:0 0 40px rgba(79,211,232,0.3);
+  }
+  .filter-icon svg{width:46px; height:46px; position:relative; z-index:2;}
+  .filter-stage h3{font-size:1.12rem; margin-bottom:7px;}
+  .filter-stage p{font-size:0.8rem; color:rgba(243,237,224,0.52); line-height:1.5;}
+  .filter-num{
+    position:absolute; top:-5px; right:-5px; width:26px; height:26px; border-radius:50%;
+    background:var(--gold); color:var(--navy-deep); font-size:0.68rem; font-weight:800;
+    display:flex; align-items:center; justify-content:center; z-index:3;
+  }
+  .water-fill{
+    position:absolute; bottom:0; left:0; right:0; height:0%;
+    background:linear-gradient(0deg, rgba(79,211,232,0.4), rgba(79,211,232,0.08));
+    transition:height 1.8s cubic-bezier(0.16,1,0.3,1);
+    z-index:1;
+  }
+  .filter-stage.in .water-fill{height:72%;}
+  .flow-drop{
+    position:absolute; top:42px; width:9px; height:9px; border-radius:50%;
+    background:var(--crystal); opacity:0; z-index:2;
+    box-shadow:0 0 8px var(--crystal);
+    animation:flowDrop 2.2s linear infinite;
+  }
+  @keyframes flowDrop{
+    0%{left:12%; opacity:0; transform:scale(0.4);}
+    8%{opacity:1;}
+    48%{left:48%; opacity:1;}
+    92%{left:85%; opacity:0.7;}
+    100%{left:88%; opacity:0; transform:scale(0.3);}
+  }
+
+  /* PRODUCTS */
+  .products{background:var(--navy);}
+  .flavor-grid{max-width:1240px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:22px;}
+  .flavor-card{
+    position:relative; border:1px solid var(--line); border-radius:8px; padding:30px 22px; overflow:hidden;
+    background:linear-gradient(160deg, rgba(255,255,255,0.03), transparent);
+    transition:all .55s cubic-bezier(0.16,1,0.3,1);
+  }
+  .flavor-card::before{
+    content:''; position:absolute; top:-60%; left:-60%; width:220%; height:220%;
+    background:radial-gradient(circle at center, rgba(201,162,39,0.1), transparent 50%);
+    opacity:0; transition:opacity .5s;
+  }
+  .flavor-card:hover{transform:translateY(-14px) scale(1.02); border-color:var(--gold); box-shadow:0 25px 55px -12px rgba(0,0,0,0.55);}
+  .flavor-card:hover::before{opacity:1;}
+  .flavor-card .fnum{font-family:'Cormorant Garamond',serif; font-size:0.82rem; color:var(--gold-bright); letter-spacing:0.1em;}
+  .flavor-card .fdrop{width:52px; height:62px; margin:18px 0 16px; transition:transform .55s cubic-bezier(0.34,1.56,0.64,1);}
+  .flavor-card:hover .fdrop{transform:scale(1.2) rotate(12deg);}
+  .flavor-card h3{font-size:1.3rem; margin-bottom:9px;}
+  .flavor-card p{font-size:0.84rem; color:rgba(243,237,224,0.55); line-height:1.6;}
+
+  /* FRANCHISE */
+  .franchise{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,162,39,0.2), transparent 55%),
+      var(--navy-deep);
+    text-align:center;
+    padding-top:130px; padding-bottom:130px;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .franchise .eyebrow{display:flex; justify-content:center; gap:14px; align-items:center; margin-bottom:20px;}
+  .franchise .eyebrow .rule{width:36px; height:1px; background:var(--gold);}
+  .franchise h2{font-size:clamp(2rem,4.2vw,3.3rem); max-width:800px; margin:0 auto; line-height:1.14;}
+  .franchise h2 .accent{color:var(--gold-bright); font-style:italic;}
+  .franchise p.lead{max-width:580px; margin:22px auto 0; color:rgba(243,237,224,0.65); line-height:1.75;}
+  .franchise-stats{
+    display:flex; justify-content:center; gap:0; margin:52px auto 0; max-width:900px; flex-wrap:wrap;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .franchise-stats div{flex:1; min-width:155px; padding:26px 16px; border-right:1px solid var(--line); transition:background .3s;}
+  .franchise-stats div:last-child{border-right:none;}
+  .franchise-stats div:hover{background:rgba(201,162,39,0.07);}
+  .franchise-stats b{display:block; font-family:'Cormorant Garamond',serif; font-size:2.2rem; color:var(--gold-bright);}
+  .franchise-stats span{font-size:0.64rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(243,237,224,0.48);}
+  .franchise-ctas{display:flex; gap:14px; justify-content:center; margin-top:44px; flex-wrap:wrap;}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(180deg, var(--navy) 0%, var(--teal) 100%);}
+  .contact-grid{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .info-card{border:1px solid var(--line); border-radius:8px; padding:38px; background:rgba(255,255,255,0.02);}
+  .info-card .eyebrow{margin-bottom:18px;}
+  .info-row{display:flex; gap:15px; padding:15px 0; border-top:1px solid var(--line); transition:padding-left .3s;}
+  .info-row:first-of-type{border-top:none;}
+  .info-row:hover{padding-left:10px;}
+  .info-row .ico{width:22px; flex:none; margin-top:2px; font-size:1.1rem;}
+  .info-row div b{display:block; font-size:0.64rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--crystal-soft); margin-bottom:4px;}
+  .info-row div span{font-size:0.96rem; line-height:1.55;}
+  .info-row a{color:var(--gold-bright); transition:opacity .3s;}
+  .info-row a:hover{opacity:0.8;}
+  .social-row{display:flex; gap:12px; margin-top:20px; flex-wrap:wrap;}
+  .social-btn{
+    display:inline-flex; align-items:center; gap:8px; padding:10px 16px;
+    border:1px solid var(--line); border-radius:6px; font-size:0.78rem; font-weight:600;
+    transition:all .35s;
+  }
+  .social-btn:hover{border-color:var(--gold); background:rgba(201,162,39,0.1); transform:translateY(-3px);}
+  .social-btn svg{width:16px; height:16px; fill:var(--gold-bright);}
+  .map-visual{
+    position:relative; border:1px solid var(--line); border-radius:8px; overflow:hidden; min-height:400px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(79,211,232,0.16), transparent 55%),
+      radial-gradient(circle at 70% 70%, rgba(201,162,39,0.13), transparent 55%),
+      #06181f;
+  }
+  .map-visual svg{position:absolute; inset:0; width:100%; height:100%;}
+  .map-pin{position:absolute; top:46%; left:52%; transform:translate(-50%,-50%); text-align:center;}
+  .map-pin .pin-dot{
+    width:18px;height:18px;border-radius:50%; background:var(--gold-bright);
+    box-shadow:0 0 0 0 rgba(232,199,102,0.7); animation:pinPulse 2s infinite;
+  }
+  @keyframes pinPulse{0%{box-shadow:0 0 0 0 rgba(232,199,102,0.55);}70%{box-shadow:0 0 0 26px rgba(232,199,102,0);}100%{box-shadow:0 0 0 0 rgba(232,199,102,0);}}
+  .map-pin .pin-label{margin-top:10px; font-family:'Cormorant Garamond',serif; font-size:1.08rem; font-style:italic;}
+
+  /* FOOTER */
+  footer{padding:48px 5vw 28px; border-top:1px solid var(--line); background:var(--navy-deep);}
+  .footer-grid{max-width:1240px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-end; gap:28px; flex-wrap:wrap;}
+  .footer-brand .brand-name{font-size:1.5rem;}
+  .footer-brand .brand-sub{margin-top:5px;}
+  .footer-links{display:flex; gap:26px; flex-wrap:wrap; align-items:center;}
+  .footer-links a{font-size:0.76rem; color:rgba(243,237,224,0.52); letter-spacing:0.04em; transition:color .3s;}
+  .footer-links a:hover{color:var(--gold-bright);}
+  .footer-social{display:flex; gap:10px;}
+  .footer-social a{
+    width:36px; height:36px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; transition:all .35s;
+  }
+  .footer-social a:hover{border-color:var(--gold); background:rgba(201,162,39,0.12); transform:translateY(-3px);}
+  .footer-social a svg{width:16px; height:16px; fill:var(--gold-bright);}
+  .footer-bottom{max-width:1240px; margin:32px auto 0; padding-top:20px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .footer-bottom span{font-size:0.68rem; color:rgba(243,237,224,0.38);}
+
+  /* FLOATING BUTTONS */
+  .float-btns{position:fixed; bottom:26px; right:26px; z-index:300; display:flex; flex-direction:column; gap:12px;}
+  .wa-float, .ig-float{
+    width:58px; height:58px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .4s cubic-bezier(0.34,1.56,0.64,1), box-shadow .35s;
+    position:relative;
+  }
+  .wa-float{
+    background:linear-gradient(135deg, #25D366, #128C7E);
+    box-shadow:0 8px 28px rgba(37,211,102,0.45);
+    animation:waPulse 2.5s ease-in-out infinite;
+  }
+  .ig-float{
+    background:linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    box-shadow:0 8px 28px rgba(220,39,67,0.4);
+  }
+  .wa-float:hover, .ig-float:hover{transform:scale(1.14);}
+  .wa-float svg, .ig-float svg{width:28px; height:28px; fill:#fff;}
+  @keyframes waPulse{
+    0%,100%{box-shadow:0 8px 28px rgba(37,211,102,0.45);}
+    50%{box-shadow:0 8px 28px rgba(37,211,102,0.45), 0 0 0 14px rgba(37,211,102,0.12);}
+  }
+  .float-tip{
+    position:absolute; right:68px; top:50%; transform:translateY(-50%);
+    background:var(--navy-deep); color:var(--ivory); padding:7px 13px; border-radius:6px;
+    font-size:0.74rem; white-space:nowrap; border:1px solid var(--line);
+    opacity:0; pointer-events:none; transition:opacity .3s;
+  }
+  .wa-float:hover .float-tip, .ig-float:hover .float-tip{opacity:1;}
+
+  /* CURSOR GLOW */
+  .cursor-glow{
+    position:fixed; width:280px; height:280px; border-radius:50%;
+    background:radial-gradient(circle, rgba(79,211,232,0.08), transparent 70%);
+    pointer-events:none; z-index:1; transform:translate(-50%,-50%);
+    transition:opacity .3s; opacity:0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:980px){
+    nav ul, .nav-cta{display:none;}
+    .nav-toggle{display:block;}
+    .hero-inner{grid-template-columns:1fr; padding-top:110px;}
+    .bottle-wrap{height:380px; margin-top:8px;}
+    .about-grid{grid-template-columns:1fr;}
+    .flavor-grid{grid-template-columns:repeat(2,1fr);}
+    .filter-pipeline{grid-template-columns:repeat(2,1fr); gap:28px;}
+    .filter-pipeline::before{display:none;}
+    .contact-grid{grid-template-columns:1fr;}
+    .franchise-stats div{flex:1 1 50%; border-bottom:1px solid var(--line);}
+    .delivery-van{width:115px; height:58px;}
+  }
+  @media (max-width:520px){
+    .flavor-grid{grid-template-columns:1fr;}
+    .filter-pipeline{grid-template-columns:1fr;}
+    section{padding:75px 5.5vw;}
+    .hero-stats{gap:18px;}
+    .float-btns{bottom:18px; right:16px;}
+    .wa-float, .ig-float{width:52px; height:52px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  :focus-visible{outline:2px solid var(--gold-bright); outline-offset:3px;}
+
+  /* ========== PRICE BADGE ========== */
+  .price-badge{
+    display:inline-flex; align-items:center; gap:10px; padding:10px 20px; border-radius:999px;
+    border:1px solid var(--gold); background:rgba(201,162,39,0.1); color:var(--gold-bright);
+    font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; font-weight:700; position:relative;
+  }
+  .price-badge::before{
+    content:''; position:absolute; inset:0; border-radius:999px; border:1px solid var(--gold);
+    animation:badgePulse 2s ease-out infinite;
+  }
+  @keyframes badgePulse{0%{transform:scale(1); opacity:.8;}100%{transform:scale(1.6); opacity:0;}}
+  .price-badge svg{width:15px; height:15px; flex-shrink:0;}
+
+  /* ========== GALLERY ========== */
+  .gallery{background:linear-gradient(180deg, var(--teal) 0%, var(--navy) 100%);}
+  .gallery-grid{
+    max-width:1280px; margin:56px auto 0; padding:0 5vw;
+    display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:14px; gap:16px;
+  }
+  .g-item{
+    position:relative; overflow:hidden; border-radius:8px; border:1px solid var(--line);
+    cursor:pointer; opacity:0; transform:translateY(40px) scale(0.96);
+    transition:opacity .9s cubic-bezier(0.16,1,0.3,1), transform .9s cubic-bezier(0.16,1,0.3,1);
+  }
+  .g-item.in{opacity:1; transform:translateY(0) scale(1);}
+  .g-item img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform .7s cubic-bezier(0.16,1,0.3,1), filter .5s ease;
+    filter:saturate(1.05) contrast(1.02);
+  }
+  .g-item:hover img{transform:scale(1.08) rotate(0.3deg);}
+  .g-item .g-cap{
+    position:absolute; left:0; right:0; bottom:0; padding:18px 16px 14px;
+    background:linear-gradient(0deg, rgba(4,18,26,0.92), transparent);
+    transform:translateY(60%); transition:transform .45s cubic-bezier(0.16,1,0.3,1);
+  }
+  .g-item:hover .g-cap{transform:translateY(0);}
+  .g-cap b{display:block; font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--gold-bright);}
+  .g-cap span{font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase; color:rgba(243,237,224,0.65);}
+  .g-item.tall{grid-row:span 24;}
+  .g-item.med{grid-row:span 18;}
+  .g-item.wide{grid-column:span 2; grid-row:span 15;}
+  @media(max-width:900px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .g-item.wide{grid-column:span 2;}
+  }
+  @media(max-width:520px){
+    .gallery-grid{grid-template-columns:1fr; grid-auto-rows:auto;}
+    .g-item, .g-item.tall, .g-item.med, .g-item.wide{grid-row:auto; grid-column:auto; height:280px;}
+    .g-item .g-cap{transform:translateY(0);}
+  }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; z-index:300; background:rgba(4,10,15,0.94);
+    display:flex; align-items:center; justify-content:center; padding:5vh 5vw;
+    opacity:0; pointer-events:none; transition:opacity .35s ease;
+  }
+  .lightbox.open{opacity:1; pointer-events:auto;}
+  .lightbox img{max-width:100%; max-height:88vh; border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,0.6); transform:scale(0.9); transition:transform .4s cubic-bezier(0.16,1,0.3,1);}
+  .lightbox.open img{transform:scale(1);}
+  .lightbox-close{
+    position:absolute; top:26px; right:5vw; width:42px; height:42px; border-radius:50%;
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    color:var(--ivory); font-size:1.4rem; cursor:pointer; transition:all .3s ease;
+  }
+  .lightbox-close:hover{border-color:var(--gold); color:var(--gold-bright); transform:rotate(90deg);}
+
+  /* ========== REVIEWS ========== */
+  .reviews{background:var(--navy-deep); position:relative; overflow:hidden;}
+  .reviews::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 85% 15%, rgba(201,162,39,0.1), transparent 45%);
+  }
+  .review-scroll{
+    position:relative; z-index:2; max-width:1280px; margin:56px auto 0; padding:0 5vw;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .review-card{
+    background:linear-gradient(160deg, rgba(243,237,224,0.05), rgba(243,237,224,0.01));
+    border:1px solid var(--line); border-radius:10px; padding:30px 26px;
+    position:relative; transition:transform .5s cubic-bezier(0.16,1,0.3,1), border-color .4s ease, background .4s ease;
+  }
+  .review-card:hover{transform:translateY(-8px); border-color:var(--gold); background:linear-gradient(160deg, rgba(201,162,39,0.08), rgba(243,237,224,0.02));}
+  .review-quote-mark{
+    font-family:'Cormorant Garamond',serif; font-size:3rem; color:var(--gold); opacity:0.4; line-height:1; margin-bottom:6px;
+  }
+  .stars{display:flex; gap:3px; margin-bottom:14px;}
+  .stars svg{width:15px; height:15px; fill:var(--gold-bright);}
+  .review-card p.rtext{font-size:0.92rem; line-height:1.7; color:rgba(243,237,224,0.82); min-height:96px;}
+  .review-foot{display:flex; align-items:center; gap:12px; margin-top:22px; padding-top:18px; border-top:1px solid var(--line);}
+  .r-avatar{
+    width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond',serif; font-weight:700; font-size:1rem; color:var(--navy-deep);
+    background:linear-gradient(135deg, var(--gold-bright), var(--gold)); flex-shrink:0;
+  }
+  .r-name{font-size:0.85rem; font-weight:700; color:var(--ivory);}
+  .r-loc{font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(243,237,224,0.5); margin-top:2px;}
+  .review-summary{
+    display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:56px;
+    padding-top:40px; border-top:1px solid var(--line); position:relative; z-index:2;
+  }
+  .review-summary .rs-num{font-family:'Cormorant Garamond',serif; font-size:2.4rem; color:var(--gold-bright); font-weight:700;}
+  .review-summary .rs-lab{font-size:0.66rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(243,237,224,0.55); margin-top:2px;}
+  @media(max-width:900px){.review-scroll{grid-template-columns:1fr;}}
+
+  /* ========== WRITE A REVIEW FORM ========== */
+  .review-form-wrap{
+    max-width:640px; margin:64px auto 0; padding:38px 34px; border-radius:12px;
+    background:linear-gradient(160deg, rgba(243,237,224,0.05), rgba(243,237,224,0.015));
+    border:1px solid var(--line); position:relative; z-index:2;
+  }
+  .review-form-wrap h3{font-size:1.5rem; margin-bottom:6px; color:var(--ivory);}
+  .review-form-wrap p.rf-sub{font-size:0.85rem; color:rgba(243,237,224,0.55); margin-bottom:26px;}
+  .rf-row{margin-bottom:20px;}
+  .rf-row label{display:block; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-bright); margin-bottom:8px; font-weight:700;}
+  .rf-row input[type=text], .rf-row textarea{
+    width:100%; padding:13px 15px; background:rgba(4,18,26,0.6); border:1px solid var(--line);
+    border-radius:6px; color:var(--ivory); font-family:'Manrope',sans-serif; font-size:0.92rem;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .rf-row input[type=text]:focus, .rf-row textarea:focus{
+    outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(201,162,39,0.15);
+  }
+  .rf-row textarea{min-height:110px; resize:vertical;}
+  .star-picker{display:flex; gap:6px; direction:rtl; justify-content:flex-end; width:fit-content;}
+  .star-picker input{display:none;}
+  .star-picker label{
+    font-size:1.9rem; color:rgba(243,237,224,0.22); cursor:pointer; transition:color .2s ease, transform .2s ease;
+    line-height:1;
+  }
+  .star-picker label:hover, .star-picker label:hover ~ label,
+  .star-picker input:checked ~ label{color:var(--gold-bright);}
+  .star-picker input:checked + label{transform:scale(1.15);}
+  .rf-photo{
+    border:1.5px dashed var(--line); border-radius:8px; padding:24px; text-align:center;
+    cursor:pointer; transition:border-color .3s ease, background .3s ease; position:relative; overflow:hidden;
+  }
+  .rf-photo:hover{border-color:var(--gold); background:rgba(201,162,39,0.05);}
+  .rf-photo input{position:absolute; inset:0; opacity:0; cursor:pointer;}
+  .rf-photo .rf-icon{font-size:1.6rem; margin-bottom:8px; display:block;}
+  .rf-photo span{font-size:0.8rem; color:rgba(243,237,224,0.6);}
+  .rf-preview{margin-top:14px; display:none; align-items:center; gap:12px;}
+  .rf-preview img{width:64px; height:64px; object-fit:cover; border-radius:8px; border:1px solid var(--line);}
+  .rf-preview span{font-size:0.78rem; color:var(--gold-bright);}
+  .rf-submit{
+    margin-top:10px; width:100%; justify-content:center; background:linear-gradient(120deg, var(--gold), var(--gold-bright));
+    color:var(--navy-deep); border:none; padding:15px; border-radius:6px; font-size:0.8rem; letter-spacing:0.08em;
+    text-transform:uppercase; font-weight:700; cursor:pointer; transition:all .4s cubic-bezier(0.16,1,0.3,1);
+    display:flex; align-items:center; gap:8px;
+  }
+  .rf-submit:hover{transform:translateY(-3px); box-shadow:0 14px 34px -10px rgba(201,162,39,0.6);}
+  .rf-note{margin-top:16px; font-size:0.72rem; color:rgba(243,237,224,0.4); text-align:center; line-height:1.6;}
+  @media(max-width:520px){.review-form-wrap{padding:28px 20px;}}
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Floating buttons -->
+<div class="float-btns">
+  <a href="https://www.instagram.com/balaji_water_/" target="_blank" rel="noopener" class="ig-float" aria-label="Balaji Water Instagram">
+    <span class="float-tip">@balaji_water_</span>
+    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+  </a>
+  <a href="https://wa.me/918853504815?text=Hello%20Balaji%20Water%2C%20I%20want%20to%20enquire%20about%20franchise%20%2F%20delivery." target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp Inquiry">
+    <span class="float-tip">WhatsApp Enquiry</span>
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- Delivery Van -->
+<div class="van-track" id="vanTrack">
+  <div class="delivery-van" id="deliveryVan">
+    <div class="van-smoke"></div>
+    <div class="van-smoke" style="animation-delay:0.35s; left:16px;"></div>
+    <svg viewBox="0 0 160 80" fill="none">
+      <rect x="10" y="28" width="95" height="32" rx="4" fill="#0e3b43" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="105" y="38" width="40" height="22" rx="3" fill="#0e3b43" stroke="#c9a227" stroke-width="1.5"/>
+      <rect x="112" y="42" width="22" height="12" rx="2" fill="#4fd3e8" opacity="0.5"/>
+      <rect x="22" y="34" width="28" height="16" rx="2" fill="#4fd3e8" opacity="0.25"/>
+      <rect x="56" y="34" width="28" height="16" rx="2" fill="#4fd3e8" opacity="0.25"/>
+      <g class="van-wheel-spin" style="transform-origin:38px 62px;">
+        <circle cx="38" cy="62" r="10" fill="#04121a" stroke="#e8c766" stroke-width="2"/>
+        <circle cx="38" cy="62" r="4" fill="#c9a227"/>
+        <line x1="38" y1="52" x2="38" y2="72" stroke="#e8c766" stroke-width="1" opacity="0.5"/>
+        <line x1="28" y1="62" x2="48" y2="62" stroke="#e8c766" stroke-width="1" opacity="0.5"/>
+      </g>
+      <g class="van-wheel-spin" style="transform-origin:120px 62px; animation-delay:0.1s;">
+        <circle cx="120" cy="62" r="10" fill="#04121a" stroke="#e8c766" stroke-width="2"/>
+        <circle cx="120" cy="62" r="4" fill="#c9a227"/>
+        <line x1="120" y1="52" x2="120" y2="72" stroke="#e8c766" stroke-width="1" opacity="0.5"/>
+        <line x1="110" y1="62" x2="130" y2="62" stroke="#e8c766" stroke-width="1" opacity="0.5"/>
+      </g>
+      <text x="57" y="48" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#e8c766" font-weight="700">Balaji</text>
+      <path d="M88 36 v14 a3 3 0 006 0 V36" fill="none" stroke="#4fd3e8" stroke-width="1.5"/>
+      <rect x="89" y="34" width="4" height="3" rx="0.5" fill="#c9a227"/>
+    </svg>
+  </div>
+</div>
+
+<header id="siteHeader">
+  <div class="brand">
+    <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+      <path d="M20 3C20 3 8 17 8 25a12 12 0 0024 0c0-8-12-22-12-22z" fill="url(#dropGrad)"/>
+      <path d="M12 27c1 3 4 6 8 6" stroke="#0b1e2d" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+      <defs>
+        <linearGradient id="dropGrad" x1="8" y1="3" x2="32" y2="37" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#e8c766"/><stop offset="0.55" stop-color="#c9a227"/><stop offset="1" stop-color="#4fd3e8"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div>
+      <div class="brand-name">Balaji <em>Water</em></div>
+      <div class="brand-sub">Since Mauranipur</div>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#about">Heritage</a></li>
+      <li><a href="#filtration">Process</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#franchise">Franchise</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="nav-social">
+        <a href="https://www.instagram.com/balaji_water_/" target="_blank" title="@balaji_water_">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/deep_sahu_official/" target="_blank" title="@deep_sahu_official">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <a href="https://wa.me/918853504815?text=Hello%20Balaji%20Water%2C%20I%20want%20franchise%20details." target="_blank" class="nav-cta">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    WhatsApp
+  </a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="ripple-canvas"></canvas>
+  <div class="particle" style="width:9px;height:9px;top:18%;left:10%;animation-delay:0s;"></div>
+  <div class="particle" style="width:14px;height:14px;top:32%;left:80%;animation-delay:1.5s;"></div>
+  <div class="particle" style="width:7px;height:7px;top:58%;left:22%;animation-delay:3s;"></div>
+  <div class="particle" style="width:11px;height:11px;top:72%;left:88%;animation-delay:0.8s;"></div>
+  <div class="particle" style="width:6px;height:6px;top:45%;left:55%;animation-delay:2.2s;"></div>
+
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="rule"></span>
+        <span class="eyebrow">HD Foods &amp; Beverages · Mauranipur</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hi">शुद्धता। भरोसा।</span>
+        <span class="line1">Purity. Reliability.</span><br>
+        Now at Your <span class="accent">Doorstep.</span>
+      </h1>
+      <p class="hero-desc">
+        Balaji Water crafts India's fastest-growing range of fresh flavoured water —
+        advanced filtration, crystal-clear taste and hygienic packaging, delivered from
+        our Mauranipur bottling house straight to your door.
+      </p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/918853504815?text=Hello%20Balaji%20Water%2C%20I%20want%20to%20enquire%20about%20franchise." target="_blank" class="btn-whatsapp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://www.instagram.com/balaji_water_/" target="_blank" class="btn-ig">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </a>
+        <a href="#franchise" class="btn-primary">Franchise →</a>
+      </div>
+      <div class="hero-stats">
+        <div><b data-count="58">0</b><span>Deliveries Posted</span></div>
+        <div><b data-count="277">0</b><span>Trusted Followers</span></div>
+        <div><b>5★</b><span>Service Rating</span></div>
+        <div><b data-count="1">0</b><span>Growing Franchise</span></div>
+      </div>
+    </div>
+
+    <!-- BOTTLE WITH POUR FILL -->
+    <div class="bottle-wrap">
+      <div class="bottle-halo"></div>
+      <div class="pour-stream"></div>
+      <div class="pour-splash"></div>
+      <div class="droplet-float" style="left:22%; top:8%; animation-delay:0s;"></div>
+      <div class="droplet-float" style="left:48%; top:2%; animation-delay:0.9s;"></div>
+      <div class="droplet-float" style="left:68%; top:12%; animation-delay:1.8s;"></div>
+      <div class="droplet-float" style="left:35%; top:0%; animation-delay:2.5s;"></div>
+      <div class="bottle">
+        <svg viewBox="0 0 150 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#bdf3fb" stop-opacity="0.95"/>
+              <stop offset="1" stop-color="#2fa9c4" stop-opacity="0.98"/>
+            </linearGradient>
+            <linearGradient id="glassGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ffffff" stop-opacity="0.06"/>
+              <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.24"/>
+              <stop offset="1" stop-color="#ffffff" stop-opacity="0.05"/>
+            </linearGradient>
+            <clipPath id="bottleClip">
+              <path d="M48 100 v236 a20 20 0 0020 20 h14 a20 20 0 0020-20 V100 z"/>
+            </clipPath>
+          </defs>
+          <!-- glass body -->
+          <path d="M55 10 h40 v34 c0 8 14 10 14 26 v300 a20 20 0 01-20 20 H61 a20 20 0 01-20-20 V70 c0-16 14-18 14-26 z"
+                fill="url(#glassGrad)" stroke="#e8c766" stroke-width="1.3" opacity="0.92"/>
+          <!-- CAP -->
+          <rect x="60" y="5" width="30" height="12" rx="2" fill="#c9a227"/>
+          <!-- WATER FILL (animated rising level) -->
+          <g clip-path="url(#bottleClip)">
+            <rect id="waterLevel" x="48" y="336" width="54" height="0" fill="url(#waterGrad)">
+              <animate attributeName="y" values="336;150;150;336" keyTimes="0;0.35;0.7;1" dur="5s" repeatCount="indefinite"/>
+              <animate attributeName="height" values="0;186;186;0" keyTimes="0;0.35;0.7;1" dur="5s" repeatCount="indefinite"/>
+            </rect>
+            <!-- surface wave -->
+            <ellipse cx="75" cy="150" rx="26" ry="5" fill="rgba(189,243,251,0.5)">
+              <animate attributeName="cy" values="336;150;150;336" keyTimes="0;0.35;0.7;1" dur="5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.35;0.7;1" dur="5s" repeatCount="indefinite"/>
+            </ellipse>
+          </g>
+          <!-- bubbles rising with water -->
+          <circle cx="62" cy="280" r="2.5" fill="#fff" opacity="0">
+            <animate attributeName="cy" values="320;170;170;320" keyTimes="0;0.4;0.65;1" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.35;0.65;1" dur="5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="88" cy="300" r="2" fill="#fff" opacity="0">
+            <animate attributeName="cy" values="330;190;190;330" keyTimes="0;0.38;0.68;1" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.45;0.45;0" keyTimes="0;0.32;0.68;1" dur="5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="75" cy="310" r="1.8" fill="#fff" opacity="0">
+            <animate attributeName="cy" values="325;200;200;325" keyTimes="0;0.42;0.7;1" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.35;0.7;1" dur="5s" repeatCount="indefinite"/>
+          </circle>
+          <!-- LABEL -->
+          <rect x="42" y="200" width="66" height="70" rx="3" fill="#0e3b43" opacity="0.88"/>
+          <text x="75" y="222" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#e8c766" font-weight="700">Balaji</text>
+          <text x="75" y="242" text-anchor="middle" font-family="Manrope, sans-serif" font-size="9" letter-spacing="2" fill="#f3ede0">WATER</text>
+          <line x1="50" y1="256" x2="100" y2="256" stroke="#c9a227" stroke-width="1"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal-left">
+      <svg class="arch" viewBox="0 0 400 300" opacity="0.55">
+        <g stroke="#c9a227" stroke-width="1.4" fill="none">
+          <path d="M20 300 V150 A80 80 0 01180 150 V300"/>
+          <path d="M60 300 V170 A40 40 0 01140 170 V300"/>
+          <path d="M220 300 V120 A100 100 0 01420 120 V300"/>
+        </g>
+      </svg>
+      <svg class="crest" viewBox="0 0 120 140">
+        <path d="M60 6C60 6 22 46 22 78a38 38 0 0076 0c0-32-38-72-38-72z" fill="none" stroke="#e8c766" stroke-width="1.6"/>
+        <path d="M60 20C60 20 34 50 34 75a26 26 0 0052 0c0-25-26-55-26-55z" fill="url(#dropGrad)" opacity="0.35"/>
+        <path d="M20 92 L100 92" stroke="#4fd3e8" stroke-width="1" opacity="0.6"/>
+        <text x="60" y="120" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="12" fill="#f3ede0" letter-spacing="2">MAURANIPUR</text>
+      </svg>
+    </div>
+    <div class="about-copy reveal-right">
+      <div class="eyebrow"><span class="rule"></span><span>OUR HERITAGE</span></div>
+      <h2>Bottled in the <em style="font-style:italic;color:var(--gold-bright);">City of Kings</em></h2>
+      <p>
+        Balaji Water is bottled at our facility on NH39, near Bhadarwar, in Mauranipur —
+        a town whose royal past inspires the standard we bottle to. Every batch passes
+        through advanced multi-stage filtration before it ever leaves our doors.
+      </p>
+      <p>
+        We're proud to be a franchise partner of HD Foods &amp; Beverages, growing a
+        network built on one promise: water that tastes as clean as it looks.
+      </p>
+      <ul class="checklist">
+        <li><span class="tick">✓</span> Advanced Filtration</li>
+        <li><span class="tick">✓</span> Crystal Clear Taste</li>
+        <li><span class="tick">✓</span> Hygienic Packaging</li>
+        <li><span class="tick">✓</span> Doorstep Delivery</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FILTRATION -->
+<section class="filtration" id="filtration">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="rule"></span><span>PURE PROCESS</span><span class="rule"></span></div>
+    <h2>From Source to Bottle — Crystal Clear</h2>
+    <p>Watch every drop purified through our advanced multi-stage filtration system.</p>
+  </div>
+  <div class="filter-pipeline">
+    <div class="flow-drop" style="animation-delay:0s;"></div>
+    <div class="flow-drop" style="animation-delay:0.7s;"></div>
+    <div class="flow-drop" style="animation-delay:1.4s;"></div>
+    <div class="filter-stage reveal-scale">
+      <div class="filter-icon">
+        <div class="water-fill"></div>
+        <div class="filter-num">1</div>
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M24 6C24 6 10 22 10 32a14 14 0 0028 0c0-10-14-26-14-26z" stroke="#4fd3e8" stroke-width="2" fill="rgba(79,211,232,0.15)"/>
+          <circle cx="24" cy="30" r="4" fill="#4fd3e8"/>
+        </svg>
+      </div>
+      <h3>Source Intake</h3>
+      <p>Pure groundwater drawn and pre-screened for quality.</p>
+    </div>
+    <div class="filter-stage reveal-scale" style="transition-delay:0.12s;">
+      <div class="filter-icon">
+        <div class="water-fill"></div>
+        <div class="filter-num">2</div>
+        <svg viewBox="0 0 48 48" fill="none">
+          <rect x="10" y="12" width="28" height="24" rx="3" stroke="#e8c766" stroke-width="2" fill="rgba(201,162,39,0.12)"/>
+          <line x1="14" y1="20" x2="34" y2="20" stroke="#4fd3e8" stroke-width="1.5"/>
+          <line x1="14" y1="26" x2="34" y2="26" stroke="#4fd3e8" stroke-width="1.5"/>
+          <line x1="14" y1="32" x2="34" y2="32" stroke="#4fd3e8" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h3>Multi-Stage Filter</h3>
+      <p>Sediment, carbon &amp; micron filtration remove impurities.</p>
+    </div>
+    <div class="filter-stage reveal-scale" style="transition-delay:0.24s;">
+      <div class="filter-icon">
+        <div class="water-fill"></div>
+        <div class="filter-num">3</div>
+        <svg viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="14" stroke="#4fd3e8" stroke-width="2" fill="rgba(79,211,232,0.1)"/>
+          <path d="M18 24h12M24 18v12" stroke="#e8c766" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="5" fill="#4fd3e8" opacity="0.6"/>
+        </svg>
+      </div>
+      <h3>UV &amp; Ozone</h3>
+      <p>Final disinfection for 100% microbiological safety.</p>
+    </div>
+    <div class="filter-stage reveal-scale" style="transition-delay:0.36s;">
+      <div class="filter-icon">
+        <div class="water-fill"></div>
+        <div class="filter-num">4</div>
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M18 8h12v8c0 3 6 4 6 10v16a6 6 0 01-6 6H18a6 6 0 01-6-6V26c0-6 6-7 6-10V8z" stroke="#e8c766" stroke-width="2" fill="rgba(201,162,39,0.1)"/>
+          <path d="M16 28v10a4 4 0 004 4h8a4 4 0 004-4V28" fill="url(#waterGrad)" opacity="0.8"/>
+          <rect x="20" y="5" width="8" height="5" rx="1" fill="#c9a227"/>
+        </svg>
+      </div>
+      <h3>Hygienic Bottling</h3>
+      <p>Sealed clean &amp; ready for your doorstep.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="rule"></span><span>THE RANGE</span><span class="rule"></span></div>
+    <h2>Flavoured, Fresh, Fit for a King</h2>
+    <p>A growing line of fresh flavoured waters — crafted for everyday hydration and workouts.</p>
+    <a href="https://www.instagram.com/balaji_water_/" target="_blank" rel="noopener" class="price-badge" style="margin-top:22px;">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      For Prices, DM us on Instagram
+    </a>
+  </div>
+  <div class="flavor-grid">
+    <div class="flavor-card reveal">
+      <div class="fnum">01</div>
+      <svg class="fdrop" viewBox="0 0 46 56"><path d="M23 2C23 2 4 24 4 36a19 19 0 0038 0C42 24 23 2 23 2z" fill="#4fd3e8" opacity="0.85"/></svg>
+      <h3>Classic Pure</h3>
+      <p>Our signature drinking water — advanced filtration, zero aftertaste.</p>
+    </div>
+    <div class="flavor-card reveal" style="transition-delay:0.1s;">
+      <div class="fnum">02</div>
+      <svg class="fdrop" viewBox="0 0 46 56"><path d="M23 2C23 2 4 24 4 36a19 19 0 0038 0C42 24 23 2 23 2z" fill="#e8c766" opacity="0.85"/></svg>
+      <h3>Citrus Zest</h3>
+      <p>A bright, lightly-sparked infusion built for the on-the-go moment.</p>
+    </div>
+    <div class="flavor-card reveal" style="transition-delay:0.2s;">
+      <div class="fnum">03</div>
+      <svg class="fdrop" viewBox="0 0 46 56"><path d="M23 2C23 2 4 24 4 36a19 19 0 0038 0C42 24 23 2 23 2z" fill="#c9a227" opacity="0.85"/></svg>
+      <h3>Workout Blend</h3>
+      <p>Pure hydration engineered for the trail, the gym, and the summit.</p>
+    </div>
+    <div class="flavor-card reveal" style="transition-delay:0.3s;">
+      <div class="fnum">04</div>
+      <svg class="fdrop" viewBox="0 0 46 56"><path d="M23 2C23 2 4 24 4 36a19 19 0 0038 0C42 24 23 2 23 2z" fill="#bdf3fb" opacity="0.85"/></svg>
+      <h3>Himalayan Chill</h3>
+      <p>Cool, mineral-forward and unmistakably crisp — bottled for altitude.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="rule"></span><span>FROM OUR CAMPAIGNS</span><span class="rule"></span></div>
+    <h2>Har Poster Ek Kahani, Har Bottle Ek Vaada</h2>
+    <p>A glimpse of Balaji Water in the wild — from the Himalayas to the desert to your workout bag.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="g-item tall" data-full="images/poster-1-himalayan.jpeg">
+      <img src="images/poster-1-himalayan.jpeg" alt="Balaji Water — Har Paani Ki Bottle Same Nahi Hoti campaign poster" loading="lazy">
+      <div class="g-cap"><b>Pure Paani, Behtar Zindagi</b><span>Signature Campaign</span></div>
+    </div>
+    <div class="g-item med" data-full="images/poster-2-workout.jpeg">
+      <img src="images/poster-2-workout.jpeg" alt="Balaji Water — Your Workout Water Buddy poster" loading="lazy">
+      <div class="g-cap"><b>Your Workout Water Buddy</b><span>Fitness Range</span></div>
+    </div>
+    <div class="g-item med" data-full="images/poster-3-desert.jpeg">
+      <img src="images/poster-3-desert.jpeg" alt="Balaji Water — Smart Log Choose Karte Hain poster" loading="lazy">
+      <div class="g-cap"><b>Sirf Pyaas Nahi, Standard Bhi</b><span>Brand Story</span></div>
+    </div>
+    <div class="g-item tall" data-full="images/poster-4-hdlogo.jpeg">
+      <img src="images/poster-4-hdlogo.jpeg" alt="HD Foods and Beverages — Premium Bottle Manufacturer" loading="lazy">
+      <div class="g-cap"><b>HD Foods &amp; Beverages</b><span>Manufacturing Partner</span></div>
+    </div>
+    <div class="g-item wide" data-full="images/poster-5-mascot.jpeg">
+      <img src="images/poster-5-mascot.jpeg" alt="Balaji Water friendly mascot campaign poster" loading="lazy">
+      <div class="g-cap"><b>Pure · Safe · Refreshing</b><span>Community Favourite</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lightboxClose">✕</div>
+  <img id="lightboxImg" src="" alt="Balaji Water campaign — expanded view">
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="rule"></span><span>CUSTOMER LOVE</span><span class="rule"></span></div>
+    <h2>Trusted Across Mauranipur &amp; Beyond</h2>
+    <p>Real words from the people who choose Balaji Water every single day.</p>
+  </div>
+  <div class="review-scroll">
+    <div class="review-card reveal">
+      <div class="review-quote-mark">"</div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+      </div>
+      <p class="rtext">Taste bilkul crystal clear hai aur delivery bhi time pe aati hai. Ab ghar mein sirf Balaji Water hi mangwate hain, koi aur brand nahi.</p>
+      <div class="review-foot">
+        <div class="r-avatar">RK</div>
+        <div><div class="r-name">Rohit Kushwaha</div><div class="r-loc">Mauranipur</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal" style="transition-delay:0.1s;">
+      <div class="review-quote-mark">"</div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+      </div>
+      <p class="rtext">Workout ke baad ye water bilkul refreshing lagta hai. Packaging bhi bahut hygienic hai aur bottle kabhi leak nahi hui.</p>
+      <div class="review-foot">
+        <div class="r-avatar">PS</div>
+        <div><div class="r-name">Priya Sahu</div><div class="r-loc">Bhadarwara</div></div>
+      </div>
+    </div>
+    <div class="review-card reveal" style="transition-delay:0.2s;">
+      <div class="review-quote-mark">"</div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.9 7.4.8-5.6 5 1.7 7.3L12 18l-6.6 4 1.7-7.3-5.6-5 7.4-.8z"/></svg>
+      </div>
+      <p class="rtext">Franchise leke bahut accha laga — HD Foods &amp; Beverages ki poori team support karti hai, aur brand ki demand din-ba-din badh rahi hai.</p>
+      <div class="review-foot">
+        <div class="r-avatar">AB</div>
+        <div><div class="r-name">Anuj Bharat</div><div class="r-loc">Jhansi</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="review-summary reveal">
+    <div><div class="rs-num" data-count="4.9">0</div><div class="rs-lab">Average Rating</div></div>
+    <div><div class="rs-num" data-count="277">0</div><div class="rs-lab">Instagram Followers</div></div>
+    <div><div class="rs-num" data-count="30">0</div><div class="rs-lab">Retail Partners</div></div>
+    <div><div class="rs-num">5★</div><div class="rs-lab">Service Standard</div></div>
+  </div>
+
+  <!-- WRITE A REVIEW -->
+  <div class="review-form-wrap reveal">
+    <h3>Share Your Experience</h3>
+    <p class="rf-sub">Apna review aur ek photo daaliye — hum ise site par feature karenge.</p>
+    <form id="reviewForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <div class="rf-row">
+        <label>Your Rating</label>
+        <div class="star-picker">
+          <input type="radio" id="star5" name="rating" value="5" checked><label for="star5">★</label>
+          <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+          <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+          <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+          <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+        </div>
+      </div>
+      <div class="rf-row">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="e.g. Rohit Kushwaha" required>
+      </div>
+      <div class="rf-row">
+        <label>Your Review</label>
+        <textarea name="review" placeholder="Balaji Water ke saath aapka experience kaisa raha?" required></textarea>
+      </div>
+      <div class="rf-row">
+        <label>Add a Photo (optional)</label>
+        <div class="rf-photo" id="rfPhotoBox">
+          <span class="rf-icon">📷</span>
+          <span>Click to upload — bottle, delivery, ya khud ki photo</span>
+          <input type="file" name="photo" accept="image/*" id="rfPhotoInput">
+        </div>
+        <div class="rf-preview" id="rfPreview">
+          <img id="rfPreviewImg" src="" alt="Selected review photo preview">
+          <span id="rfPreviewName"></span>
+        </div>
+      </div>
+      <button type="submit" class="rf-submit">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+        Submit Review
+      </button>
+      <p class="rf-note">Reviews are checked before going live on the site. Apna number ya business detail share karne ke liye WhatsApp button use karein.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FRANCHISE -->
+<section class="franchise" id="franchise">
+  <div class="eyebrow"><span class="rule"></span><span>PROFESSIONAL BUSINESS OPPORTUNITY</span><span class="rule"></span></div>
+  <h2 class="reveal">Own a piece of India's <span class="accent">fastest-growing</span> flavoured water brand</h2>
+  <p class="lead reveal">Join Balaji Water as a franchise partner and bring advanced filtration,
+    hygienic bottling and doorstep delivery to your own territory — backed by HD Foods &amp; Beverages.</p>
+  <div class="franchise-stats reveal">
+    <div><b>Low</b><span>Entry Investment</span></div>
+    <div><b>Full</b><span>Setup Support</span></div>
+    <div><b>Pan-India</b><span>Growth Plan</span></div>
+    <div><b>5★</b><span>Service Standard</span></div>
+  </div>
+  <div class="franchise-ctas reveal">
+    <a href="https://wa.me/918853504815?text=Hello%20Balaji%20Water%2C%20I%20want%20franchise%20details%20and%20investment%20info." target="_blank" class="btn-whatsapp">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Franchise
+    </a>
+    <a href="https://www.instagram.com/balaji_water_/" target="_blank" class="btn-ig">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      @balaji_water_
+    </a>
+    <a href="tel:8853504815" class="btn-primary">Call 8853504815 →</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-head reveal">
+    <div class="eyebrow"><span class="rule"></span><span>VISIT / CONNECT</span><span class="rule"></span></div>
+    <h2>Find the Bottling House</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="info-card reveal-left">
+      <div class="eyebrow">FACTORY &amp; CONTACT</div>
+      <div class="info-row">
+        <div class="ico">📍</div>
+        <div><b>Address</b><span>NH39, Near Bhadarwar,<br>Mauranipur — The City of Kings<br>Jhansi, Uttar Pradesh — 284204</span></div>
+      </div>
+      <div class="info-row">
+        <div class="ico">📞</div>
+        <div><b>Contact</b><span><a href="tel:8853504815">8853504815</a></span></div>
+      </div>
+      <div class="info-row">
+        <div class="ico">💬</div>
+        <div><b>WhatsApp</b><span><a href="https://wa.me/918853504815" target="_blank">Chat Instantly</a></span></div>
+      </div>
+      <div class="info-row">
+        <div class="ico">🏭</div>
+        <div><b>Operated By</b><span>HD Foods &amp; Beverages</span></div>
+      </div>
+      <div class="social-row">
+        <a href="https://www.instagram.com/balaji_water_/" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @balaji_water_
+        </a>
+        <a href="https://www.instagram.com/deep_sahu_official/" target="_blank" class="social-btn">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          @deep_sahu_official
+        </a>
+      </div>
+    </div>
+    <div class="map-visual reveal-right">
+      <svg viewBox="0 0 500 420" opacity="0.5">
+        <g stroke="#4fd3e8" stroke-width="1">
+          <line x1="0" y1="80" x2="500" y2="80"/>
+          <line x1="0" y1="180" x2="500" y2="150"/>
+          <line x1="0" y1="300" x2="500" y2="330"/>
+          <line x1="120" y1="0" x2="90" y2="420"/>
+          <line x1="380" y1="0" x2="410" y2="420"/>
+        </g>
+      </svg>
+      <div class="map-pin">
+        <div class="pin-dot"></div>
+        <div class="pin-label">Mauranipur, NH39</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name">Balaji <em style="color:var(--gold-bright); font-style:italic;">Water</em></div>
+      <div class="brand-sub">HD Foods &amp; Beverages · Mauranipur</div>
+    </div>
+    <div class="footer-links">
+      <a href="#about">Heritage</a>
+      <a href="#filtration">Process</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#franchise">Franchise</a>
+      <a href="#contact">Contact</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/balaji_water_/" target="_blank" title="@balaji_water_">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/deep_sahu_official/" target="_blank" title="@deep_sahu_official">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://wa.me/918853504815" target="_blank" title="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Balaji Water. Purity. Reliability. Doorstep.</span>
+    <span>Franchise partner for HD Foods &amp; Beverages · Follow @balaji_water_ &amp; @deep_sahu_official</span>
+  </div>
+</footer>
+
+<script>
+  // Header
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  }, {passive:true});
+
+  // Cursor glow
+  const glow = document.getElementById('cursorGlow');
+  document.addEventListener('mousemove', (e) => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top = e.clientY + 'px';
+    glow.style.opacity = '1';
+  });
+  document.addEventListener('mouseleave', () => { glow.style.opacity = '0'; });
+
+  // Reveals
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-rotate, .filter-stage');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  // Gallery reveal (staggered)
+  const gItems = document.querySelectorAll('.g-item');
+  const gio = new IntersectionObserver((entries) => {
+    entries.forEach((e, idx) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), idx * 90);
+        gio.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  gItems.forEach(el => gio.observe(el));
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+  gItems.forEach(item => {
+    item.addEventListener('click', () => {
+      lightboxImg.src = item.dataset.full;
+      lightbox.classList.add('open');
+    });
+  });
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Counters (supports decimals like 4.9 and plain labels like "5★")
+  function animateCounters() {
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const raw = el.dataset.count;
+      const target = parseFloat(raw);
+      const isDecimal = raw.includes('.');
+      const start = performance.now();
+      function update(now) {
+        const p = Math.min((now - start) / 1800, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const val = ease * target;
+        el.textContent = isDecimal ? val.toFixed(1) : Math.floor(val) + (target >= 50 ? '+' : '');
+        if (p < 1) requestAnimationFrame(update);
+        else el.textContent = isDecimal ? target.toFixed(1) : target + (target >= 50 ? '+' : '');
+      }
+      requestAnimationFrame(update);
+    });
+  }
+  const heroObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) { animateCounters(); heroObs.disconnect(); }
+  }, {threshold: 0.35});
+  heroObs.observe(document.querySelector('.hero'));
+  const reviewObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) { animateCounters(); reviewObs.disconnect(); }
+  }, {threshold: 0.3});
+  const reviewSummary = document.querySelector('.review-summary');
+  if (reviewSummary) reviewObs.observe(reviewSummary);
+
+  // Review form — photo preview
+  const rfPhotoInput = document.getElementById('rfPhotoInput');
+  const rfPreview = document.getElementById('rfPreview');
+  const rfPreviewImg = document.getElementById('rfPreviewImg');
+  const rfPreviewName = document.getElementById('rfPreviewName');
+  if (rfPhotoInput) {
+    rfPhotoInput.addEventListener('change', () => {
+      const file = rfPhotoInput.files[0];
+      if (!file) { rfPreview.style.display = 'none'; return; }
+      rfPreviewImg.src = URL.createObjectURL(file);
+      rfPreviewName.textContent = file.name;
+      rfPreview.style.display = 'flex';
+    });
+  }
+
+  // Van scroll-driven
+  const van = document.getElementById('deliveryVan');
+  function updateVan() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = Math.min(Math.max(scrollTop / docHeight, 0), 1);
+    const maxTravel = window.innerWidth + 120;
+    const x = -170 + progress * maxTravel;
+    van.style.left = x + 'px';
+    const bounce = Math.sin(progress * Math.PI * 14) * 4;
+    van.style.transform = `translateY(${bounce}px)`;
+  }
+  window.addEventListener('scroll', updateVan, {passive:true});
+  window.addEventListener('resize', updateVan, {passive:true});
+  updateVan();
+
+  // Ripple canvas
+  const canvas = document.getElementById('ripple-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, dpr;
+  function resize(){
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize', resize);
+  resize();
+  let ripples = [];
+  function spawnRipple(x, y, maxR, hue){
+    ripples.push({x, y, r: 0, maxR, alpha: 0.5, hue});
+  }
+  setInterval(() => {
+    if (ripples.length < 14){
+      spawnRipple(Math.random()*W, H*0.48 + Math.random()*H*0.48, 130 + Math.random()*220, Math.random()>0.5 ? '79,211,232' : '201,162,39');
+    }
+  }, 900);
+  canvas.addEventListener('pointermove', (e) => {
+    if (Math.random() > 0.75){
+      const rect = canvas.getBoundingClientRect();
+      spawnRipple(e.clientX - rect.left, e.clientY - rect.top, 90 + Math.random()*70, '232,199,102');
+    }
+  });
+  function tick(){
+    ctx.clearRect(0,0,W,H);
+    ripples.forEach(r => {
+      r.r += 1.4;
+      r.alpha = Math.max(0, 0.5 * (1 - r.r / r.maxR));
+      ctx.beginPath();
+      ctx.arc(r.x, r.y, r.r, 0, Math.PI*2);
+      ctx.strokeStyle = `rgba(${r.hue},${r.alpha})`;
+      ctx.lineWidth = 1.3;
+      ctx.stroke();
+    });
+    ripples = ripples.filter(r => r.r < r.maxR);
+    requestAnimationFrame(tick);
+  }
+  tick();
+</script>
+</body>
+</html>
